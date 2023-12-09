@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
+const PORT = process.env.PORT || 3005;
+
+// Middleware
+app.use(express.json());
+
 
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Smile Dentist Server is running');
 })
 
-app.listen(3005, () => {
-    console.log('Server started on port 3005');
-})
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
